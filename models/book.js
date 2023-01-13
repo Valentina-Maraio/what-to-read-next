@@ -3,24 +3,12 @@ const mongoose = require('mongoose');
 
 //trea schema
 const BookSchema = new mongoose.Schema({
-    author: {
-        type: String,
-        required: true
-    },
     title: String,
+    author: String,
     image: String,
     description: String,
-    keywords: String,
     pages: Number,
-    comments: [
-        {
-            text: String,
-            date: {
-                tyype: String,
-                default: new Date()
-            }
-        }
-    ]
+    language: String,
 });
 
 //convert to model Book

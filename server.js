@@ -21,8 +21,9 @@ const listener = app.listen(process.env.PORT || 3000, () => {
 
 
 //establish connection to database
+mongoose.set("strictQuery", false);
 mongoose.connect(
-    process.env.MONGODB_URI,
+    process.env.MONGODB_URI, () => {console.log("Connected to MongoDB")},
     { useFindAndModify: false, useUnifiedTopology: true, useNewUrlParser: true, useCreateIndex: true},
     (err) => {
         if (err) return console.log("Error: ", err);

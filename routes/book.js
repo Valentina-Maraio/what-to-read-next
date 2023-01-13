@@ -5,6 +5,11 @@ const express = require('express');
 const router = express.Router();
 const bookController = require('../controllers/book');
 
+//import multer
+const multer = require('multer');
+const upload = multer();
+
+
 router.get('/book', bookController.getAllBook);
 router.post('/book', bookController.newBook);
 router.delete('/book', bookController.deleteAllBook);
@@ -12,6 +17,8 @@ router.delete('/book', bookController.deleteAllBook);
 router.get('/book/:name', bookController.getOneBook);
 router.post('/book/:name', bookController.newComment);
 router.delete('/book/:name', bookController.deleteOneBook);
+
+router.post("/book", upload.none(), bookController.newBook);
 //2.
 //const teaController = require('../controllers/tea);
 //3.
